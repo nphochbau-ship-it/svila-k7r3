@@ -3,7 +3,7 @@ from playwright.async_api import async_playwright
 U=sys.argv[1];SH='/workspace/kokon-junak/shots/'
 BOT="""window.__bot=setInterval(()=>{const K=__kk,S=K.S;if(K.st!=='play'||S.kind!=='def')return;
 const L=S.en.slice();if(S.boss&&!S.boss.dead&&S.boss.fly<=0)L.push(S.boss);let b=null,bd=1e9;
-for(const e of L){const d=Math.hypot(e.x-180,e.y-innerHeight/(innerWidth/360)*.36);if(d<bd){bd=d;b=e}}if(b&&bd<170)K.hitAt(b.x,b.y)},350)"""
+for(const e of L){const d=Math.hypot(e.x-180,e.y-innerHeight/(innerWidth/360)*.36);if(d<bd){bd=d;b=e}}if(S.pow>=1&&S.en.length>=3)K.power();if(b&&bd<170)K.hitAt(b.x,b.y)},350)"""
 async def main():
   async with async_playwright() as p:
     b=await p.chromium.launch(executable_path='/usr/bin/google-chrome')
