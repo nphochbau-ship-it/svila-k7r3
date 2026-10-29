@@ -10,7 +10,7 @@ async def main():
     ctx=await b.new_context(viewport={'width':390,'height':844},device_scale_factor=2.5,is_mobile=True,has_touch=True)
     pg=await ctx.new_page();errs=[]
     pg.on('pageerror',lambda e:errs.append(str(e)));pg.on('console',lambda m:m.type=='error' and errs.append(m.text))
-    await pg.goto(U+'?mute');await pg.wait_for_timeout(1500);await pg.screenshot(path=SH+'01-naslovna.png')
+    await pg.goto(U+'?mute');await pg.wait_for_function("__kk.st!=='load'");await pg.wait_for_timeout(800);await pg.screenshot(path=SH+'01-naslovna.png')
     await pg.mouse.click(195,844-65);await pg.wait_for_timeout(500);print('st',await pg.evaluate('[__kk.st,__kk.LV]'))
     await pg.evaluate(BOT)
     for lv in (1,2,3,4):
